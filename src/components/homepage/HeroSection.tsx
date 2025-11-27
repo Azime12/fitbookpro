@@ -11,21 +11,21 @@ const poppins = Poppins({
 });
 
 const HeroSection = () => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [currentText, setCurrentText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [currentBgIndex, setCurrentBgIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const typingRef = useRef(null);
+  const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
+  const [currentText, setCurrentText] = useState<string>('');
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const [currentBgIndex, setCurrentBgIndex] = useState<number>(0);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const typingRef = useRef<NodeJS.Timeout | null>(null);
 
-  const heroTexts = [
+  const heroTexts: string[] = [
     "Build Stunning eBooks With Ai",
     "Perfect for Coaches & Creators",
     "Export High Quality Designs",
     "Generate in Minutes, Not Hours"
   ];
 
-  const backgroundColors = [
+  const backgroundColors: string[] = [
     '#112c79', // Deep Blue
     '#5f156e', // Purple
     '#2563EB', // Bright Blue

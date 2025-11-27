@@ -1,5 +1,20 @@
-const PricingSection = ({ isYearly, setIsYearly }) => {
-  const plans = [
+interface PricingSectionProps {
+  isYearly: boolean;
+  setIsYearly: (value: boolean) => void;
+}
+
+interface Plan {
+  name: string;
+  monthlyPrice: string;
+  yearlyPrice: string;
+  features: string[];
+  popular: boolean;
+  borderColor: string;
+  shadow: string;
+}
+
+const PricingSection = ({ isYearly, setIsYearly }: PricingSectionProps) => {
+  const plans: Plan[] = [
     {
       name: "Pro",
       monthlyPrice: "$9.99",

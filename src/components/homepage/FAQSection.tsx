@@ -1,5 +1,16 @@
-const FAQSection = ({ openItems, toggleItem }) => {
-  const faqs = [
+interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+interface FAQSectionProps {
+  openItems: Set<number>;
+  toggleItem: (id: number) => void;
+}
+
+const FAQSection = ({ openItems, toggleItem }: FAQSectionProps) => {
+  const faqs: FAQItem[] = [
     {
       id: 1,
       question: "What is FitBookPro.ai?",

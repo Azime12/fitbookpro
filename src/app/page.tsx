@@ -11,10 +11,10 @@ import PartnersSection from '@/components/homepage/PartnersSection';
 import Footer from '@/components/homepage/Footer';
 
 export default function HomePage() {
-  const [isYearly, setIsYearly] = useState(false);
-  const [openItems, setOpenItems] = useState(new Set());
+  const [isYearly, setIsYearly] = useState<boolean>(false);
+  const [openItems, setOpenItems] = useState<Set<number>>(new Set());
 
-  const toggleItem = (id) => {
+  const toggleItem = (id: number) => {
     const newOpenItems = new Set(openItems);
     if (newOpenItems.has(id)) {
       newOpenItems.delete(id);

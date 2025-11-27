@@ -3,18 +3,18 @@
 import { useState, useRef } from 'react';
 
 const VideoSection = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
-  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [currentTime, setCurrentTime] = useState<number>(0);
+  const [duration, setDuration] = useState<number>(0);
+  const [volume, setVolume] = useState<number>(1);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play().catch(error => {
+        videoRef.current.play().catch((error: Error) => {
           console.log('Video play failed:', error);
         });
       }
@@ -31,7 +31,7 @@ const VideoSection = () => {
     }
   };
 
-  const handleProgressClick = (e) => {
+  const handleProgressClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (videoRef.current && duration && !isNaN(duration)) {
       const rect = e.currentTarget.getBoundingClientRect();
       const percent = (e.clientX - rect.left) / rect.width;
@@ -39,7 +39,7 @@ const VideoSection = () => {
     }
   };
 
-  const handleVolumeChange = (e) => {
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newVolume = parseFloat(e.target.value);
     setVolume(newVolume);
     if (videoRef.current) {
