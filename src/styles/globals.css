@@ -1,0 +1,12 @@
+/* Import Tailwind base (preflight) */
+@import "tailwindcss/preflight";
+
+/* Utilities are still valid */
+@tailwind utilities;
+
+/* Your custom global styles */
+html, body {
+  height: 100%;
+  background-color: #f9fafb;
+  color: #111827;
+}
